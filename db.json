@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Create Home Page with Tasks",
+    "description": "Home page should list every task in a paginated way",
+    "id": "857df6ea-16a4-43bb-a793-59ee42c7d7a5",
+    "completed": false
+  },
+  {
+    "name": "Implement marking task as completed",
+    "description": "Functionality to mark task as completed",
+    "id": "b313eb9f-5491-43c2-b5f3-2b43093b9833",
+    "completed": false
+  }
+]
