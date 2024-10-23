@@ -13,14 +13,14 @@ GraphQL server will be running at [http://localhost:3000](http://localhost:4000)
 
 1. Add `/` route which lists all tasks.
 
-- Allow marking task as completed via checkbox
+- Allow marking task as completed via checkbox optimistically
 - Shows name of task
 - On click should navigate to `/task/:id`
 - Add Create Task button which redirects to `/task/create`
 
 2. Add `/task/:id` route which shows current task and allows actions:
 
-- Marking task as completed via checkbox
+- Marking task as completed via checkbox optimistically
 - Update Task name and description and show notification
 - Delete Task and show notification
 
