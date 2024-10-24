@@ -1,5 +1,5 @@
 //libs
-import { Plus } from "lucide-react";
+import { Plus, Server } from "lucide-react";
 import Link from "next/link";
 import { useCallback, useState } from "react";
 import { Dialog, DialogTrigger } from "@radix-ui/react-dialog";
@@ -36,6 +36,12 @@ export const Header = (): JSX.Element => {
           </DialogTrigger>
           <DestinationForm key={`${isModalOpen}`} onSubmit={onSubmit} />
         </Dialog>
+        <Button asChild>
+          <a href="http://localhost:4000/" target="_blank">
+            <Server />
+            Open Server
+          </a>
+        </Button>
       </div>
     </div>
   );

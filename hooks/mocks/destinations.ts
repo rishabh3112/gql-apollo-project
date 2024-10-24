@@ -1,6 +1,6 @@
 import { Destination } from "@/types";
 
-// remove this
+// TODO: remove this
 export const allDestinations: Destination[] = [
   {
     id: "1",

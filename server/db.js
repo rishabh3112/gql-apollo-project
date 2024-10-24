@@ -28,7 +28,11 @@ export const readDestinationById = (id) => {
 
 export const getPaginatedDestinations = (page, size) => {
   const offset = page * size;
-  return getDestinations().slice(offset, offset + size);
+  const currentDestinations = getDestinations();
+  return {
+    results: currentDestinations.slice(offset, offset + size),
+    totalCount: currentDestinations.length,
+  };
 };
 
 export const updateDestinationById = (id, destinationDTO) => {

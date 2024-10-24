@@ -14,8 +14,13 @@ const typeDefs = gql`
     name: String!
     description: String!
     location: String
-    rating: Int
+    rating: Float
     favorite: Boolean
+  }
+
+  type DestinationsResult {
+    results: [Destination]
+    totalCount: Int
   }
 
   input DestinationDTO {
@@ -27,14 +32,14 @@ const typeDefs = gql`
 
   type Query {
     getDestinationById(id: ID!): Destination
-    destinations(page: Int!, size: Int!): [Destination]
+    destinations(page: Int!, size: Int!): DestinationsResult
   }
 
   type Mutation {
     createDestination(task: DestinationDTO!): Boolean
     updateDestination(id: ID!, task: DestinationDTO!): Boolean
     deleteDestination(id: ID!): Destination
-    markFavorite(id: ID!, status: Boolean): Boolean
+    markFavorite(id: ID!, value: Boolean): Boolean
   }
 `;
 
@@ -48,8 +53,8 @@ const resolvers = {
     createDestination: (root, { task }) => addDestination(task),
     updateDestination: (root, { task, id }) => updateDestinationById(id, task),
     deleteDestination: (root, { id }) => removeDestination(id),
-    updateStatus: (root, { id, status }) =>
-      updateDestinationById(id, { favorite: status }),
+    markFavorite: (root, { id, value }) =>
+      updateDestinationById(id, { favorite: value }),
   },
 };
 

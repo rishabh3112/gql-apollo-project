@@ -1,14 +1,162 @@
 [
   {
-    "name": "Create Home Page with Tasks",
-    "description": "Home page should list every task in a paginated way",
-    "id": "857df6ea-16a4-43bb-a793-59ee42c7d7a5",
-    "completed": false
+    "id": "1",
+    "name": "Eiffel Tower",
+    "description": "Iconic iron lattice tower on the Champ de Mars in Paris, France.",
+    "rating": 4.5,
+    "location": "Paris, France",
+    "favorite": false
   },
   {
-    "name": "Implement marking task as completed",
-    "description": "Functionality to mark task as completed",
-    "id": "b313eb9f-5491-43c2-b5f3-2b43093b9833",
-    "completed": false
+    "id": "2",
+    "name": "Machu Picchu",
+    "description": "Ancient Inca city set high in the Andes Mountains in Peru.",
+    "rating": 4.8,
+    "location": "Cusco Region, Peru",
+    "favorite": false
+  },
+  {
+    "id": "3",
+    "name": "Great Wall of China",
+    "description": "Series of fortifications and walls built across the historical northern borders of ancient Chinese states.",
+    "rating": 4.7,
+    "location": "Northern China",
+    "favorite": false
+  },
+  {
+    "id": "4",
+    "name": "Taj Mahal",
+    "description": "An ivory-white marble mausoleum on the right bank of the river Yamuna in Agra, India.",
+    "rating": 4.6,
+    "location": "Agra, India",
+    "favorite": true
+  },
+  {
+    "id": "5",
+    "name": "Colosseum",
+    "description": "Oval amphitheatre in the centre of the city of Rome, Italy.",
+    "rating": 4.7,
+    "location": "Rome, Italy",
+    "favorite": false
+  },
+  {
+    "id": "6",
+    "name": "Petra",
+    "description": "Ancient city famous for its rock-cut architecture in southern Jordan.",
+    "rating": 4.6,
+    "location": "Ma\"an Governorate, Jordan",
+    "favorite": false
+  },
+  {
+    "id": "7",
+    "name": "Christ the Redeemer",
+    "description": "Art Deco statue of Jesus Christ in Rio de Janeiro, Brazil.",
+    "rating": 4.5,
+    "location": "Rio de Janeiro, Brazil",
+    "favorite": false
+  },
+  {
+    "id": "8",
+    "name": "Statue of Liberty",
+    "description": "Symbol of freedom and democracy located on Liberty Island in New York City.",
+    "rating": 4.7,
+    "location": "New York City, USA",
+    "favorite": true
+  },
+  {
+    "id": "9",
+    "name": "Stonehenge",
+    "description": "Prehistoric monument consisting of a ring of standing stones in Wiltshire, England.",
+    "rating": 4.3,
+    "location": "\"Wiltshire, England\"",
+    "favorite": false
+  },
+  {
+    "id": "10",
+    "name": "Sydney Opera House",
+    "description": "Multi-venue performing arts center located on Bennelong Point in Sydney, Australia.",
+    "rating": 4.6,
+    "location": "Sydney, Australia",
+    "favorite": false
+  },
+  {
+    "id": "11",
+    "name": "Santorini",
+    "description": "A picturesque island known for its stunning sunsets and whitewashed buildings.",
+    "rating": 4.8,
+    "location": "Santorini, Greece",
+    "favorite": true
+  },
+  {
+    "id": "12",
+    "name": "Grand Canyon",
+    "description": "A steep-sided canyon carved by the Colorado River in Arizona, USA.",
+    "rating": 4.9,
+    "location": "Arizona, USA",
+    "favorite": false
+  },
+  {
+    "id": "13",
+    "name": "Niagara Falls",
+    "description": "Famous waterfalls located on the border between Canada and the USA.",
+    "rating": 4.6,
+    "location": "Ontario, Canada / New York, USA",
+    "favorite": false
+  },
+  {
+    "id": "14",
+    "name": "Burj Khalifa",
+    "description": "The tallest building in the world located in Dubai, UAE.",
+    "rating": 4.7,
+    "location": "Dubai, UAE",
+    "favorite": true
+  },
+  {
+    "id": "15",
+    "name": "Acropolis of Athens",
+    "description": "Ancient citadel containing several buildings of great architectural and historic significance.",
+    "rating": 4.6,
+    "location": "Athens, Greece",
+    "favorite": false
+  },
+  {
+    "id": "16",
+    "name": "Big Ben",
+    "description": "The nickname for the Great Bell of the clock at the north end of the Palace of Westminster in London.",
+    "rating": "4.5",
+    "location": "London, England",
+    "favorite": false
+  },
+  {
+    "id": "17",
+    "name": "Sagrada Familia",
+    "description": "A large unfinished Roman Catholic basilica in Barcelona, Spain designed by architect Antoni Gaudí.",
+    "rating": "4.8",
+    "location": "Barcelona, Spain",
+    "favorite": true
+  },
+  {
+    "id": "18",
+    "name": "Angkor Wat",
+    "description": "A temple complex in Cambodia and one of the largest religious monuments in the world.",
+    "rating": "4.9",
+    "location": "Siem Reap Province, Cambodia",
+    "favorite": false
+  },
+  {
+    "id": "19",
+    "name": "Pyramids of Giza",
+    "description": "The oldest of the Seven Wonders of the Ancient World and the only one to remain largely intact.",
+    "rating": "4.7",
+    "location": "Giza, Egypt",
+    "favorite": false
+  },
+  {
+    "id": "20",
+    "name": "Mount Fuji",
+    "description": "An iconic strato-volcano and Japan\"s highest peak.",
+    "rating": "4.6",
+    "location": "Honshu Island, Japan",
+    "favorite": true
   }
 ]
