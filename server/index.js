@@ -11,33 +11,38 @@ import {
 const typeDefs = gql`
   type Destination {
     id: ID!
-    name: String
-    description: String
+    name: String!
+    description: String!
+    location: String
+    rating: Int
     favorite: Boolean
   }
 
   input DestinationDTO {
     name: String
+    location: String
+    rating: Int
     description: String
   }
 
   type Query {
     getDestinationById(id: ID!): Destination
-    tasks(page: Int!, size: Int!): [Destination]
+    destinations(page: Int!, size: Int!): [Destination]
   }
 
   type Mutation {
     createDestination(task: DestinationDTO!): Boolean
     updateDestination(id: ID!, task: DestinationDTO!): Boolean
     deleteDestination(id: ID!): Destination
-    updateStatus(id: ID!, status: Boolean): Boolean
+    markFavorite(id: ID!, status: Boolean): Boolean
   }
 `;
 
 const resolvers = {
   Query: {
     getDestinationById: (root, args) => readDestinationById(args.id),
-    tasks: (root, { page, size }) => getPaginatedDestinations(page, size),
+    destinations: (root, { page, size }) =>
+      getPaginatedDestinations(page, size),
   },
   Mutation: {
     createDestination: (root, { task }) => addDestination(task),

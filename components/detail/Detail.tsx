@@ -1,6 +1,6 @@
 // lib
 import { useCallback, useState } from "react";
-import { MapPin, Star, Edit, Heart } from "lucide-react";
+import { MapPin, Star, Edit, Heart, Trash2 as Trash } from "lucide-react";
 import { motion } from "framer-motion";
 import { toast, Toaster } from "react-hot-toast";
 
@@ -8,6 +8,7 @@ import { toast, Toaster } from "react-hot-toast";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { DestinationForm } from "@/components/DestinationForm";
+import { Tombstone } from "./Tombstone";
 
 // hooks
 import { useDestinationByIdQuery } from "@/hooks/useDestinationByIdQuery";
@@ -16,7 +17,7 @@ import { useDestinationByIdQuery } from "@/hooks/useDestinationByIdQuery";
 import { Destination } from "@/types";
 
 export function Detail({ id }: { id: string }) {
-  const { destination } = useDestinationByIdQuery({ id });
+  const { destination, loading } = useDestinationByIdQuery({ id });
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const isFavorite = destination?.favorite;
@@ -27,17 +28,27 @@ export function Detail({ id }: { id: string }) {
     toast.error("Unhandled!");
   }, []);
 
+  const handleDelete = useCallback(() => {
+    // TODO: call destination mutation here
+    toast.error("Unhandled!");
+  }, []);
+
   const toggleFavorite = useCallback(() => {
+    // TODO: add handling for favorite here
     toast.success(isFavorite ? "Removed from favorites" : "Added to favorites");
   }, [isFavorite]);
+
+  if (loading) {
+    return <Tombstone />;
+  }
 
   if (!destination) {
     return <header>No Destination Found</header>;
   }
 
   return (
-    <div className="w-full h-full">
-      <header className="relative h-96">
+    <div className="w-full h-full flex flex-col items-center gap-8 pt-8">
+      <header className="relative h-96 w-full max-w-screen-lg">
         <img
           src={`https://picsum.photos/seed/${destination.name}/2000/1000`}
           alt={destination.name}
@@ -61,6 +72,10 @@ export function Detail({ id }: { id: string }) {
                 onSubmit={onSubmit}
               />
             </Dialog>
+            <Button variant="destructive" size="sm" onClick={handleDelete}>
+              <Trash className="h-4 w-4" />
+              Delete
+            </Button>
             <Button
               variant="ghost"
               size="icon"
@@ -79,7 +94,7 @@ export function Detail({ id }: { id: string }) {
           </div>
         </div>
       </header>
-      <main className="container mx-auto py-8 px-4">
+      <main className="w-full max-w-screen-lg flex flex-col items-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

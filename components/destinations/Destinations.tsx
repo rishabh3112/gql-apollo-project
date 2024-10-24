@@ -66,7 +66,7 @@ export function Destinations() {
                 <img
                   src={`https://picsum.photos/seed/${name}/600/700`}
                   alt={name}
-                  className="w-full h-48 object-cover rounded-lg"
+                  className="w-full h-96 object-cover rounded-lg"
                 />
                 <Button
                   variant="ghost"
