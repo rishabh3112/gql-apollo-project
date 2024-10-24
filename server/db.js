@@ -4,54 +4,63 @@ import { randomUUID } from "node:crypto";
 
 const DB_PATH = resolve(process.cwd(), "./db.json");
 
-const getTasks = () => {
+const getDestinations = () => {
   return JSON.parse(readFileSync(DB_PATH, { encoding: "utf-8" }));
 };
 
-const writeTasks = (tasks) => {
-  writeFileSync(DB_PATH, JSON.stringify(tasks, null, 2));
+const writeDestinations = (destinations) => {
+  writeFileSync(DB_PATH, JSON.stringify(destinations, null, 2));
 };
 
-export const addTask = (task) => {
-  const tasks = getTasks();
-  writeTasks([...tasks, { ...task, id: randomUUID(), completed: false }]);
+export const addDestination = (destination) => {
+  const destinations = getDestinations();
+  writeDestinations([
+    ...destinations,
+    { ...destination, id: randomUUID(), favorite: false },
+  ]);
   return true;
 };
 
-export const readTaskById = (id) => {
-  const tasks = getTasks();
-  return tasks.find((task) => task.id === id);
+export const readDestinationById = (id) => {
+  const destinations = getDestinations();
+  return destinations.find((destination) => destination.id === id);
 };
 
-export const getPaginatedTasks = (page, size) => {
+export const getPaginatedDestinations = (page, size) => {
   const offset = page * size;
-  return getTasks().slice(offset, offset + size);
+  return getDestinations().slice(offset, offset + size);
 };
 
-export const updateTaskById = (id, taskDTO) => {
-  const currentTasks = getTasks();
-  const task = currentTasks.find((task) => task.id === id);
+export const updateDestinationById = (id, destinationDTO) => {
+  const currentDestinations = getDestinations();
+  const destination = currentDestinations.find(
+    (destination) => destination.id === id
+  );
 
-  if (!task) {
-    throw new Error("No Task!");
+  if (!destination) {
+    throw new Error("No Destination!");
   }
 
-  const updatedTasks = currentTasks.map((task) => {
-    if (task.id !== id) return task;
-    return { ...task, ...taskDTO, id };
+  const updatedDestinations = currentDestinations.map((destination) => {
+    if (destination.id !== id) return destination;
+    return { ...destination, ...destinationDTO, id };
   });
-  writeTasks(updatedTasks);
+  writeDestinations(updatedDestinations);
   return true;
 };
 
-export const removeTask = (id) => {
-  const currentTasks = getTasks();
-  const task = currentTasks.find((task) => task.id === id);
+export const removeDestination = (id) => {
+  const currentDestinations = getDestinations();
+  const destination = currentDestinations.find(
+    (destination) => destination.id === id
+  );
 
-  if (!task) {
-    throw new Error("No Task!");
+  if (!destination) {
+    throw new Error("No Destination!");
   }
 
-  writeFileSync(currentTasks.filter((task) => task.id !== id));
-  return task;
+  writeFileSync(
+    currentDestinations.filter((destination) => destination.id !== id)
+  );
+  return destination;
 };

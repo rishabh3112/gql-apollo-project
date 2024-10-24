@@ -1,49 +1,50 @@
 import { ApolloServer, gql } from "apollo-server";
+
 import {
-  addTask,
-  getPaginatedTasks,
-  readTaskById,
-  removeTask,
-  updateTaskById,
+  addDestination,
+  getPaginatedDestinations,
+  readDestinationById,
+  removeDestination,
+  updateDestinationById,
 } from "./db.js";
 
 const typeDefs = gql`
-  type Task {
+  type Destination {
     id: ID!
     name: String
     description: String
-    completed: Boolean
+    favorite: Boolean
   }
 
-  input TaskDTO {
+  input DestinationDTO {
     name: String
     description: String
   }
 
   type Query {
-    getTaskById(id: ID!): Task
-    tasks(page: Int!, size: Int!): [Task]
+    getDestinationById(id: ID!): Destination
+    tasks(page: Int!, size: Int!): [Destination]
   }
 
   type Mutation {
-    createTask(task: TaskDTO!): Boolean
-    updateTask(id: ID!, task: TaskDTO!): Boolean
-    deleteTask(id: ID!): Task
+    createDestination(task: DestinationDTO!): Boolean
+    updateDestination(id: ID!, task: DestinationDTO!): Boolean
+    deleteDestination(id: ID!): Destination
     updateStatus(id: ID!, status: Boolean): Boolean
   }
 `;
 
 const resolvers = {
   Query: {
-    getTaskById: (root, args) => readTaskById(args.id),
-    tasks: (root, { page, size }) => getPaginatedTasks(page, size),
+    getDestinationById: (root, args) => readDestinationById(args.id),
+    tasks: (root, { page, size }) => getPaginatedDestinations(page, size),
   },
   Mutation: {
-    createTask: (root, { task }) => addTask(task),
-    updateTask: (root, { task, id }) => updateTaskById(id, task),
-    deleteTask: (root, { id }) => removeTask(id),
+    createDestination: (root, { task }) => addDestination(task),
+    updateDestination: (root, { task, id }) => updateDestinationById(id, task),
+    deleteDestination: (root, { id }) => removeDestination(id),
     updateStatus: (root, { id, status }) =>
-      updateTaskById(id, { completed: status }),
+      updateDestinationById(id, { favorite: status }),
   },
 };
 
