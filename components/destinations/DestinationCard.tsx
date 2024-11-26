@@ -15,7 +15,8 @@ export const DestinationCard = ({
   destination: Destination;
 }) => {
   const { id, name, favorite, location, rating } = destination;
-  const toggleFavorite = useCallback(() => {
+  const toggleFavorite = useCallback((event) => {
+    event.preventDefault();
     // TODO: implement this
     console.log("Unimplemented");
   }, []);
